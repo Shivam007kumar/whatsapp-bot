@@ -21,6 +21,10 @@ sheet = client.open("Restaurant Bookings").sheet1
 
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def home():
+    return "WhatsApp Bot is running!"
+
 @app.route("/webhook", methods=["POST"])
 def webhook():
     incoming_msg = request.values.get("Body", "").strip()
